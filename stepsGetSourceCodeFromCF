@@ -1,0 +1,27 @@
+
+Steps of getting source code from CLI
+1.	Login cloud foundry  
+    Cf login –sso
+    
+2.	Go to the application org 
+    Cf orgs
+    Cf target –o ORG_NAME
+
+3. View the application 
+    Cf apps
+    
+4.	Enable ssh for our application app APP_NAME
+    Cf enable-ssh APP_NAME
+    
+5.	Executes a request to the targeted API endpoint
+    Cf curl /v2/info
+    
+6.	Get application’s guid
+    Cf app APP_NAME –guid
+    
+7.	Download all the files in the droplet and zip it in the testing.gz folder
+    Cf curl /v2/apps/$GUID/droplet/download >APP_NAME.gz 
+    
+8.	Unzip the folder 
+    tar –xzvf APP_NAME.gz
+
